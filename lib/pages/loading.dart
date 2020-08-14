@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:world_clock/services/world_time.dart';
 
 class Loading extends StatefulWidget {
@@ -7,11 +8,14 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
+  String time = "Loading...";
 
   void setupWorldTime() async {
     WorldTime worldTime = WorldTime(location: "Nairobi", flag: "ke.png", url: "Africa/Nairobi");
     await worldTime.getTime();
-    print(worldTime.time);
+    setState(() {
+      time = worldTime.time;
+    });
   }
 
   @override
@@ -23,7 +27,11 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("Loading"),
+      body: Padding(
+        padding: EdgeInsets.all(50),
+        child: Text(time),
+
+      )
     );
   }
 }

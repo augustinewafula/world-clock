@@ -39,12 +39,12 @@ class _HomeState extends State<Home> {
                     },
                     icon: Icon(
                         Icons.edit_location,
-                        color: Colors.white,
+                        color: Colors.grey[300],
                     ),
                     label: Text(
                         "Edit Location",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.grey[300],
                         ),
                     ),
                   ),
